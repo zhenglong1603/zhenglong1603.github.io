@@ -1,823 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sue Zheng Long's Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth; /* Enables smooth scrolling */
-        }
-        body, html {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff; /* Changed background color to white */
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body {
-            background-color: #ffffff;
-            color: #121212;
-        }
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .topbar {
-            width: 100%;
-            background: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-        body.dark-mode .topbar {
-            background: #797878;
-        }
-        .topbar .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .topbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-right: 10px;
-        }
-        .topbar .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        .topbar .nav-links a {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            transition: color 0.3s; /* Add transition effect */
-        }
-        body.dark-mode .topbar .nav-links a {
-            color: white;
-        }
-        .topbar .nav-links a:hover {
-            color: #4670ec; /* Change color on hover */
-        }
-        body.dark-mode .topbar .nav-links a:hover {
-            color: #82aaff; /* Change color on hover in dark mode */
-        }
-        .topbar .linkedin-icon, .topbar .mode-toggler {
-            width: 28px;
-            height: 28px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-        .topbar .social-link img.linkedin-icon {
-            transition: transform 0.3s, filter 0.3s;
-        }
-
-        .topbar .social-link img.linkedin-icon:hover {
-            transform: scale(1.2);
-            filter: brightness(0.8);
-        }
-
-        .topbar .mode-toggler {
-            transition: transform 0.3s, filter 0.3s;
-        }
-
-        .topbar .mode-toggler:hover {
-            transform: scale(1.2);
-            filter: brightness(0.8);
-        }
-
-        body.dark-mode .topbar .social-link img.linkedin-icon:hover,
-        body.dark-mode .topbar .mode-toggler:hover {
-            filter: brightness(1.2);
-        }
-        .main-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: calc(100vh - 60px); /* Adjust for top bar height */
-            padding: 0;
-            background: white;
-        }
-        body.dark-mode .main-section {
-            background: #121212;
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            height: 100%;
-        }
-        .image-container {
-            position: relative;
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 60px;
-        }
-        .image-container img {
-            border-radius: 50%;
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-        }
-        .text-container {
-            flex: 2;
-            padding-left: 20px;
-        }
-        /* Add this CSS to your existing style block */
-        .hover-text {
-            position: absolute;
-            top: 410px; /* Adjust the position to ensure it's visible */
-            background-color: rgba(100, 100, 100, 0.7);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 12px;
-            text-align: center;
-            width: fit-content;
-            max-width: 200px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        body.dark-mode .hover-text {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .flip-container {
-            perspective: 1000px;
-        }
-
-        .flipper {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-
-        .flip-container:hover .flipper {
-            transform: rotateY(180deg);
-        }
-
-        .front, .back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .back {
-            transform: rotateY(180deg);
-        }
-
-        h1, h2, h3 {
-            margin: 0 0 10px;
-            text-align: center;
-        }
-        h2 {
-            font-size: 16px;
-            color: #555;
-        }
-        body.dark-mode h2 {
-            color: #aaa;
-        }
-        .buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .buttons a {
-            margin: 10px;
-            padding: 10px 20px;
-            background: #ffffff;
-            color: black;
-            text-decoration: none;
-            border-radius: 20px;
-            border: 2px solid black;
-            display: inline-block;
-            transition: background 0.3s, color 0.3s, border 0.3s;
-            text-align: center;
-        }
-        body.dark-mode .buttons a {
-            background: #333;
-            color: white;
-            border: 2px solid white;
-        }
-        .buttons a:hover {
-            background: black;
-            color: white;
-            border: 2px solid white;
-        }
-        body.dark-mode .buttons a:hover {
-            background: white;
-            color: black;
-            border: 2px solid black;
-        }
-        .social {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .social a {
-            display: inline-block;
-            margin: 10px;
-        }
-        .social img {
-            width: 40px;
-            height: 40px;
-        }
-        .social a:hover {
-            opacity: 0.7;
-        }
-        .section {
-            padding: 100px 20px 50px; /* Adjust for top bar */
-            margin-top: 40px; /* Adjust for top bar */
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 800px;
-            width: calc(100% - 40px); /* Ensure the section takes full width with some margin */
-        }
-        body.dark-mode .section {
-            background: #1e1e1e;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-        .contact-section {
-            text-align: center;
-            padding: 50px 20px;
-            margin-top: 40px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 800px;
-            width: calc(100% - 40px); /* Ensure the section takes full width with some margin */
-        }
-
-        body.dark-mode .contact-section {
-            background: #1e1e1e;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            background: #f0f0f0;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body.dark-mode .contact-item {
-            background: #333;
-            color: white;
-        }
-
-        .contact-item:hover {
-            background: #8d8d8d;
-            color: white;
-        }
-
-        body.dark-mode .contact-item:hover {
-            background: #c9c9c9;
-            color: black;
-        }
-
-        .contact-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-        .about-card {
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-        }
-        body.dark-mode .about-card {
-            background: #333;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-        }
-        .about-card h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        body.dark-mode .about-card h2 {
-            color: white;
-        }
-        .about-card p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-        }
-        body.dark-mode .about-card p {
-            color: #aaa;
-        }
-        .experience-card {
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        body.dark-mode .experience-card {
-            background: #333;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-        }
-        .experience-card img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-        }
-        .experience-content {
-            flex: 1;
-        }
-        .experience-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .experience-subtitle {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 10px;
-        }
-        body.dark-mode .experience-subtitle {
-            color: #aaa;
-        }
-        .experience-description {
-            font-size: 14px;
-            color: #333;
-        }
-        body.dark-mode .experience-description {
-            color: #ccc;
-        }
-        /* Add this CSS to your existing style block */
-
-        .technical-skills {
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 40px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .skill-item {
-            background: #f9f9f9;
-            border-radius: 10px;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            text-align: left;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark-mode .skill-item {
-            background: #333;
-            border-radius: 10px;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            text-align: left;
-            color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-item img {
-            width: 30px;
-            height: 30px;
-            margin-right: 15px; 
-            vertical-align: middle; /* Ensure vertical alignment */
-        }
-
-        .skill-item span {
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .projects-section {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        .project-card {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            margin: 20px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-        body.dark-mode .project-card {
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-        }
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover img {
-            transform: scale(1.1);
-        }
-        .project-card .project-info {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .project-card:hover .project-info {
-            opacity: 1;
-        }
-        .project-card .navigation-arrows {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }   
-
-        .project-card .prev {
-            left: -30px; /* Adjust the distance from the left edge */
-        }
-
-        .project-card .next {
-            right: -30px; /* Adjust the distance from the right edge */
-        }
-
-        .project-card .navigation-arrows button {
-            background-color: rgba(255, 255, 255, 0.5);
-            border: none;
-            color: black;
-            font-size: 16px;
-            padding: 2px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .project-card .navigation-arrows button:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        .project-info h3 {
-            margin: 10px 0;
-        }
-        .project-info p {
-            font-size: 10px;
-            margin: 10px 0;
-        }
-        .project-info a {
-            color: #ffffff;
-            text-decoration: none;
-            background: #000000;
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        #back-to-top-btn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            font-size: 24px;
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            padding: 10px;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-
-        #back-to-top-btn:hover {
-            background-color: grey;
-        }
-    </style>
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="topbar">
-        <div class="logo-container">
-            <div class="logo">Sue Zheng Long</div>
-            <a href="https://www.linkedin.com/in/suezhenglong" class="social-link">
-                <img src="images/linkedin-icon.png" alt="LinkedIn" class="linkedin-icon">
-            </a>
-            <img src="images/light-dark-icon.png" alt="Light/Dark Mode" class="mode-toggler" onclick="toggleMode()">
-        </div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
+      <div class="left-container">
+        <div class="logo" onclick="scrollToTop()">ZL</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="right-container">
+        <a href="https://www.linkedin.com/in/suezhenglong" class="social-link">
+          <img
+            src="images/linkedin-icon.png"
+            alt="LinkedIn"
+            class="linkedin-icon"
+          />
+        </a>
+        <img
+          src="images/light-dark-icon.png"
+          alt="Light/Dark Mode"
+          class="mode-toggler"
+          onclick="toggleMode()"
+        />
+      </div>
     </div>
 
     <div id="main" class="main-section">
-        <div class="container">
-            <div class="text-container">
-                <h1>Sue Zheng Long</h1>
-                <h2>Computer Science Undergraduate</h2>
-                <h3>National University of Singapore</h3>
-                <div class="buttons">
-                    <a href="cv/Sue Zheng Long Resume.pdf" download>Download CV</a>
-                    <a href="mailto:zhenglongsue@gmail.com">Email</a>
-                    <a href="tel:+6597854579">Phone</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-container">
+          <h1>hello, i am</h1>
+          <h2>ZHENG LONG</h2>
+          <h3>welcome to my website:)</h3>
+          <h4>part time <span id="dynamic-text"></span></h4>
+          <h5>full-time human being</h5>
+          <div class="buttons">
+            <a href="cv/Sue Zheng Long Resume.pdf" download>Download CV</a>
+            <a href="mailto:zhenglongsue@gmail.com">Email</a>
+            <a href="tel:+6597854579">Phone</a>
+          </div>
         </div>
+      </div>
     </div>
 
     <div id="about" class="section">
-        <h1>About Me</h1>
-
-        <div class="about-card">
-            <p>Hello! I'm Zheng Long, a Computer Science undergraduate at NUS.</p>
-            <p>I'm  a curious learner</p>
-            <p> hoping to make a difference through my work! </p> 
+      <h1>About Me</h1>
+      <div class="about-card">
+        <img
+          src="images/bettersg-logo-01.png"
+          alt="betterSG Logo"
+          class="about-img"
+        />
+        <div class="about-content">
+          <p>
+            I'm an aspiring technologist specializing in Artificial
+            Intelligence, Software Engineering & Network and Distributed
+            Systems. I'm passionate about working on cutting-edge projects that
+            push the boundaries of technology.
+          </p>
+          <p>
+            In school, I am a 2nd-year Computer Science student at National
+            University of Singapore (NUS).
+          </p>
+          <p>
+            Outside the rat race, I enjoy coding my own fun projects, watching
+            football whilst savoring coffee, whiskey, & the smaller things in
+            life. Honestly, I just try my best to live a fulfilling life — don't
+            we all?
+          </p>
         </div>
+      </div>
     </div>
-
     <div id="experience" class="section">
-        <h1>Experience</h1>
-
-        <!-- <div class="experience-card">
-            <img src="images/temaseklogo.png" alt="Temasek Holdings Logo">
-            <div class="experience-content">
-                <div class="experience-title">Robotic Process Automation Intern</div>
-                <div class="experience-subtitle">Investment Services (Investment Finance), Temasek Holdings (Private) Limited</div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Robotic Process Automation Projects</li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-        
-        <!-- <div class="experience-card">
-            <img src="images/mom-logo.png" alt="Ministry of Manpower Logo">
-            <div class="experience-content">
-                <div class="experience-title">Data Analytics Intern</div>
-                <div class="experience-subtitle">Occupational Safety and Health Division, Ministry of Manpower</div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Developed Python scripts to perform advanced text analytics</li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="experience-card">
-            <img src="images/shopee-logo.png" alt="Shopee Logo">
-            <div class="experience-content">
-                <div class="experience-title">Data Analyst Intern</div>
-                <div class="experience-subtitle">Regional Business Intelligence & Planning, Shopee</div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Automated workflows using Data Suite, reducing manual data extraction time significantly</li>
-                        <li>Built comprehensive dashboards for strategic planning using Google Looker Studio</li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <div class="experience-card">
-            <img src="images/foodpanda-logo.png" alt="foodpanda Logo">
-            <div class="experience-content">
-                <div class="experience-title">Data Analyst Intern</div>
-                <div class="experience-subtitle">CIO Office, foodpanda</div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Evaluated pricing strategies using time series analysis and SQL, leading to profit maximization in the Laos market</li>
-                        <li>Developed a report consolidation program reducing the time spent on monthly review reports by 80%</li>
-                        <li>Built dashboards for ASEAN and North Asian markets to present insights on market growth, KPIs, and pricing performance</li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-
-        <div class="experience-card">
-            <img src="images/bettersg-logo-01.png" alt="betterSG Logo">
-            <div class="experience-content">
-                <div class="experience-title">Software Developer Volunteer</div>
-                <div class="experience-subtitle">Oct 2024 - Present</div>
-                <div class="experience-description">
-                    <ul>
-                        <li>CheckMate is a non-profit organization under Better.sg that provides a WhatsApp bot to fact check messages</li>
-                        <li>Assisted in development a Telegram WebApp with React.js connected to a Firebase database to facilitate message verification by volunteers</li>
-                        <li>The Telegram WebApp is currently live & has helped to verify over 1000 messages</li>
-                    </ul>
-                </div>
-            </div>
+      <h1>Experience</h1>
+      <div class="experience-card">
+        <img src="images/bettersg-logo-01.png" alt="betterSG Logo" />
+        <div class="experience-content">
+          <div class="experience-title">Software Developer Volunteer</div>
+          <div class="experience-subtitle">Oct 2024 - Present</div>
+          <div class="experience-description">
+            <ul>
+              <li>
+                CheckMate is a non-profit organization under Better.sg that
+                provides a WhatsApp bot to fact check messages
+              </li>
+              <li>
+                Assisted in development a Telegram Web App with React.js
+                connected to a Firebase database to facilitate message
+                verification by volunteers
+              </li>
+              <li>
+                The Telegram WebApp is currently live & has helped to verify
+                over 1000 messages
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
 
-        <div class="experience-card">
-            <img src="images/dndts.png" alt="mirae Logo">
-            <div class="experience-content">
-                <div class="experience-title"> E-Commerce/ Data Analyst Assistant </div>
-                <div class="experience-subtitle">Jan 2023 - Jul 2023</div>
-                <div class="experience-description">
-                    <ul>
-                        <li>Handled pricing of products and live customer support through Back Market for an e-commerce start up </li>
-                        <li>Understood business workflow and provided feedback reports to improve operations   </li>
-                    </ul>
-                </div>
-            </div>
+      <div class="experience-card">
+        <img src="images/dndts.png" alt="mirae Logo" />
+        <div class="experience-content">
+          <div class="experience-title">E-Commerce/ Data Analyst Assistant</div>
+          <div class="experience-subtitle">Jan 2023 - Jul 2023</div>
+          <div class="experience-description">
+            <ul>
+              <li>
+                Handled pricing of products and live customer support through
+                Back Market for an e-commerce start up
+              </li>
+              <li>
+                Understood business workflow and provided feedback reports to
+                improve operations
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
 
-        <div class="technical-skills">
-            <h1>My Technical Skills</h1>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="images/sql.png" alt="SQL">
-                    <span>SQL</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/r.png" alt="SQL">
-                    <span>R</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/python.png" alt="Python">
-                    <span>Python</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/tableau.png" alt="Python">
-                    <span>Tableau</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/looker.png" alt="Python">
-                    <span>Google Looker Studio</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/powerbi.png" alt="Python">
-                    <span>Power BI</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/html.png" alt="HTML">
-                    <span>HTML</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/css.png" alt="CSS">
-                    <span>CSS</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/react.png" alt="React">
-                    <span>React</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/java.png" alt="Java">
-                    <span>Java</span>
-                </div>
-                <div class="skill-item">
-                    <img src="images/javascript.png" alt="JavaScript">
-                    <span>JavaScript</span>
-                </div>
-
-
-            </div>
+      <div class="technical-skills">
+        <h1>Technical Skills</h1>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <img src="images/sql.png" alt="SQL" />
+            <span>SQL</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/r.png" alt="R" />
+            <span>R</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/python.png" alt="Python" />
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/tableau.png" alt="Tableau" />
+            <span>Tableau</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/looker.png" alt="Google Looker Studio" />
+            <span>Google Looker Studio</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/powerbi.png" alt="Power BI" />
+            <span>Power BI</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/html.png" alt="HTML" />
+            <span>HTML</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/css.png" alt="CSS" />
+            <span>CSS</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/react.png" alt="React" />
+            <span>React</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/java.png" alt="Java" />
+            <span>Java</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/javascript.png" alt="JavaScript" />
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/flutter.png" alt="Flutter" />
+            <span>Flutter</span>
+          </div>
+          <div class="skill-item">
+            <img src="images/firebase.png" alt="Firebase" />
+            <span>Firebase</span>
+          </div>
         </div>
+      </div>
     </div>
-
     <div id="projects" class="section">
-        <h1>Projects</h1>
-        <div class="projects-section">
-            <div class="project-card">
-                <div class="project-images">
-                    <img src="images/project0.png" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h3>Predictive Analytics, GXS Bank</p>
-                    <p>Built a user-friendly dashboard and web application using HTML, CSS, JavaScript, and React.</p>
-                    <p>Implemented dynamic data visualizations and interactive UI components, significantly contributing to proactive customer retention strategies.</p>
-                    <a href="https://tinyurl.com/DSA3101Project">View Project</a>
-
-                </div>
+      <h1>Projects</h1>
+      <div class="projects-slider">
+        <div class="slider-container">
+          <div class="project-card">
+            <img src="images/WebsitePhoto.webp" alt="Project 1" />
+            <div class="project-info">
+              <h3>Portfolio Website | Software Developer</h3>
+              <ul>
+                <li>That's right, the website you're looking at right now!</li>
+                <li>
+                  Personal portfolio website to showcase my personality, skills,
+                  & projects
+                </li>
+                <li>Took this opportunity to learn HTML and CSS</li>
+                <li>
+                  Slowly improving the design with time, this is
+                  the second major overhaul to the design
+                </li>
+              </ul>
             </div>
-            <div class="project-card">
-                <img src="images/project5.png" alt="Project 2">
-                <div class="project-info">
-                    <h3>RUNNUS 2023 Website</h3>
-                    <p>Updated the full-stack database website using HTML/CSS.</p>
-                    <p>Led a team as the Vice Project Director to organize a fund-raising race event of 600 participants to raise awareness and promote inclusivity of people with disabilities.</p>
-                    <a href="https://runnus.nussportsclub.org/">View Project</a>
-                </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="images//Screenshot 2024-12-27 185110.png"
+              alt="Project 2"
+            />
+            <div class="project-info">
+              <h3>SplitBee | Software Developer</h3>
+              <ul>
+                <li>
+                  Designed and developed an intuitive bill-splitting application
+                </li>
+                <li>
+                  Simplifying expense sharing among friends by minimizing number
+                  of payments
+                </li>
+                <li>Built using Flutter, Dart, Firebase, Git</li>
+              </ul>
+              <a
+                href="https://drive.google.com/drive/u/0/folders/1bJLXAkLW5_3ajXyUZlFoLAbaCECaCdTh"
+                >View Project</a
+              >
             </div>
+          </div>
+          <!-- Add more project cards here -->
         </div>
+        <button class="slider-btn prev-btn">‹</button>
+        <button class="slider-btn next-btn">›</button>
+      </div>
     </div>
 
-    <div id="contact" class="section contact-section">
-        <h1>Contact Me</h1>
-        <p>If you have any opportunities, please connect with me!</p>
-        <div class="contact-bar">
-            <a href="mailto:zhenglongsue@gmail.com" class="contact-item">
-                <img src="images/email-icon.png" alt="Email" class="contact-icon">
-                zhenglongsue@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/suezhenglong" class="contact-item" target="_blank">
-                <img src="images/linkedin-icon.png" alt="LinkedIn" class="contact-icon">
-                suezhenglong
-            </a>
-        </div>
+    <div id="contact" class="contact-section">
+      <h1>Contact Me</h1>
+      <p>Thanks for scrolling to the end, I hope you enjoyed my website!</p>
+      <p>
+        If you have any questions, job opportunities or want to collaborate,
+      </p>
+      <p>feel free to reach out to me via email or LinkedIn!</p>
+      <div class="contact-bar">
+        <a href="mailto:zhenglongsue@gmail.com" class="contact-item">
+          <img src="images/email-icon.png" alt="Email" class="contact-icon" />
+          zhenglongsue@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/suezhenglong"
+          class="contact-item"
+          target="_blank"
+        >
+          <img
+            src="images/linkedin-icon.png"
+            alt="LinkedIn"
+            class="contact-icon"
+          />
+          suezhenglong
+        </a>
+      </div>
     </div>
-
-    <button id="back-to-top-btn" onclick="scrollToTop()">&#8679;</button>
-
     <script>
-        function toggleMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-        
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.project-images img');
-    
-        function showSlide(n) {
-            slides.forEach(slide => slide.style.display = 'none');
-            slides[n].style.display = 'block';
-        }
-    
-        function nextSlide() {
-            slideIndex++;
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
-            }
-            showSlide(slideIndex);
-        }
-    
-        function prevSlide() {
-            slideIndex--;
-            if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
-            showSlide(slideIndex);
-        }
-    
-        // Show the first slide when the page loads
-        showSlide(slideIndex);
+      //to toggle between light and dark mode
 
-        // Scroll to top button functionality
-        const backToTopBtn = document.getElementById("back-to-top-btn");
-        
-        window.onscroll = function() {scrollFunction()};
-        
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
+      function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+
+      // Scroll to top button functionality
+      // window.onscroll = function() {scrollFunction()};
+
+      function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      //typewriter
+      const dynamicText = document.getElementById("dynamic-text");
+      const texts = [
+        "student",
+        "software engineer",
+        "volunteer",
+        "football enthusiast",
+        "pokemon enthusiastt",
+      ];
+      let index = 0;
+
+      function typeWriterEffect() {
+        let text = texts[index];
+        dynamicText.textContent = ""; // Clear previous text
+        dynamicText.classList.remove("typing"); // Reset animation
+
+        let i = 0;
+        let interval = setInterval(() => {
+          dynamicText.textContent += text[i];
+          i++;
+          if (i === text.length) {
+            clearInterval(interval); // Stop when the word is fully typed
+            setTimeout(() => {
+              dynamicText.classList.remove("typing");
+              setTimeout(() => {
+                index = (index + 1) % texts.length;
+                typeWriterEffect(); // Start typing the next text
+              }, 1000); // Wait before starting the next word
+            }, 1000);
+          }
+        }, 150); // Speed of typing
+      }
+
+      // Start the typing effect on page load
+      window.onload = () => {
+        typeWriterEffect();
+      };
+
+      const sliderContainer = document.querySelector(".slider-container");
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+
+      let currentIndex = 0;
+
+      function updateSlider() {
+        const cardWidth =
+          document.querySelector(".project-card").offsetWidth + 20; // Adjust for margin
+        sliderContainer.style.transform = `translateX(-${
+          currentIndex * cardWidth
+        }px)`;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
         }
-        
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const totalCards = document.querySelectorAll(".project-card").length;
+        if (currentIndex < totalCards - 1) {
+          currentIndex++;
+          updateSlider();
         }
+      });
     </script>
-</body>
+  </body>
 </html>
