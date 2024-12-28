@@ -1,0 +1,144 @@
+/* Main Topbar Style */
+.topbar {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  body.dark-mode .topbar {
+    background: #797878;
+  }
+  
+  /* Left and Right Containers */
+  .left-container,
+  .right-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    padding-right: 10vw;
+  }
+  
+  .right-container {
+    padding-right: 5vw;
+  }
+  
+  /* Logo Style */
+  .topbar .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  /* Navigation Links */
+  .topbar .nav-links {
+    display: flex;
+    gap: 5vw;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .topbar .nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+  
+  body.dark-mode .topbar .nav-links a {
+    color: white;
+  }
+  
+  .topbar .nav-links a:hover {
+    color: #4670ec;
+  }
+  
+  /* Social Media Icons */
+  .topbar .linkedin-icon,
+  .topbar .mode-toggler {
+    width: 28px;
+    height: 28px;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+  
+  .topbar .social-link img.linkedin-icon {
+    transition: transform 0.3s, filter 0.3s;
+  }
+  
+  .topbar .social-link img.linkedin-icon:hover {
+    transform: scale(1.2);
+    filter: brightness(0.8);
+  }
+  
+  .topbar .mode-toggler {
+    transition: transform 0.3s, filter 0.3s;
+  }
+  
+  .topbar .mode-toggler:hover {
+    transform: scale(1.2);
+    filter: brightness(0.8);
+  }
+  
+  body.dark-mode .topbar .social-link img.linkedin-icon:hover,
+  body.dark-mode .topbar .mode-toggler:hover {
+    filter: brightness(1.2);
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .topbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 1rem;
+    }
+  
+    .left-container,
+    .right-container {
+      width: 100%;
+      padding-right: 0;
+      justify-content: flex-start;
+    }
+  
+    .topbar .nav-links {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+  
+    .topbar .nav-links a {
+      font-size: 1.25rem;
+    }
+  
+    .topbar .logo {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .topbar {
+      padding: 1rem;
+    }
+  
+    .topbar .nav-links {
+      gap: 1rem;
+    }
+  
+    .topbar .linkedin-icon,
+    .topbar .mode-toggler {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  

@@ -9,191 +9,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="src/app/navBar/navBar.css">
+    <link rel="stylesheet" href="src/app/mainSection/mainSection.css">
+    <link rel="stylesheet" href="src/app/aboutMe/aboutMe.css">
+    <link rel="stylesheet" href="src/app/experience/experience.css">
+    <link rel="stylesheet" href="src/app/skills/skills.css">
+    <link rel="stylesheet" href="src/app/contact/contact.css">
+    <script src="src/app/navBar/navBar.js"></script>
+    <script src="src/app/mainSection/mainSection.js"></script>
+    <script src="src/app/aboutMe/aboutMe.js"></script>
+    <script src="src/app/experience/experience.js"></script>
+    <script src="src/app/skills/skills.js"></script>
+    <script src="src/app/contact/contact.js"></script>
+    
   </head>
   <body>
-    <div class="topbar">
-      <div class="left-container">
-        <div class="logo" onclick="scrollToTop()">ZL</div>
-      </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="right-container">
-        <a href="https://www.linkedin.com/in/suezhenglong" class="social-link">
-          <img
-            src="images/linkedin-icon.png"
-            alt="LinkedIn"
-            class="linkedin-icon"
-          />
-        </a>
-        <img
-          src="images/light-dark-icon.png"
-          alt="Light/Dark Mode"
-          class="mode-toggler"
-          onclick="toggleMode()"
-        />
-      </div>
-    </div>
-
-    <div id="main" class="main-section">
-      <div class="container">
-        <div class="text-container">
-          <h1>hello, i am</h1>
-          <h2>ZHENG LONG</h2>
-          <h3>welcome to my website:)</h3>
-          <h4>part time <span id="dynamic-text"></span></h4>
-          <h5>full-time human being</h5>
-          <div class="buttons">
-            <a href="cv/Sue Zheng Long Resume.pdf" download>Download CV</a>
-            <a href="mailto:zhenglongsue@gmail.com">Email</a>
-            <a href="tel:+6597854579">Phone</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="about" class="section">
-      <h1>About Me</h1>
-      <div class="about-card">
-        <img
-          src="images/bettersg-logo-01.png"
-          alt="betterSG Logo"
-          class="about-img"
-        />
-        <div class="about-content">
-          <p>
-            I'm an aspiring technologist specializing in Artificial
-            Intelligence, Software Engineering & Network and Distributed
-            Systems. I'm passionate about working on cutting-edge projects that
-            push the boundaries of technology.
-          </p>
-          <p>
-            In school, I am a 2nd-year Computer Science student at National
-            University of Singapore (NUS).
-          </p>
-          <p>
-            Outside the rat race, I enjoy coding my own fun projects, watching
-            football whilst savoring coffee, whiskey, & the smaller things in
-            life. Honestly, I just try my best to live a fulfilling life — don't
-            we all?
-          </p>
-        </div>
-      </div>
-    </div>
+    <div id="topbar-placeholder"></div>
+    <div id="mainSection-placeholder"></div>
+    <div id="aboutMe-placeholder"></div>
     <div id="experience" class="section">
-      <h1>Experience</h1>
-      <div class="experience-card">
-        <img src="images/bettersg-logo-01.png" alt="betterSG Logo" />
-        <div class="experience-content">
-          <div class="experience-title">Software Developer Volunteer</div>
-          <div class="experience-subtitle">Oct 2024 - Present</div>
-          <div class="experience-description">
-            <ul>
-              <li>
-                CheckMate is a non-profit organization under Better.sg that
-                provides a WhatsApp bot to fact check messages
-              </li>
-              <li>
-                Assisted in development a Telegram Web App with React.js
-                connected to a Firebase database to facilitate message
-                verification by volunteers
-              </li>
-              <li>
-                The Telegram WebApp is currently live & has helped to verify
-                over 1000 messages
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="experience-card">
-        <img src="images/dndts.png" alt="mirae Logo" />
-        <div class="experience-content">
-          <div class="experience-title">E-Commerce/ Data Analyst Assistant</div>
-          <div class="experience-subtitle">Jan 2023 - Jul 2023</div>
-          <div class="experience-description">
-            <ul>
-              <li>
-                Handled pricing of products and live customer support through
-                Back Market for an e-commerce start up
-              </li>
-              <li>
-                Understood business workflow and provided feedback reports to
-                improve operations
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="technical-skills">
-        <h1>Technical Skills</h1>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <img src="images/sql.png" alt="SQL" />
-            <span>SQL</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/r.png" alt="R" />
-            <span>R</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/python.png" alt="Python" />
-            <span>Python</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/tableau.png" alt="Tableau" />
-            <span>Tableau</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/looker.png" alt="Google Looker Studio" />
-            <span>Google Looker Studio</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/powerbi.png" alt="Power BI" />
-            <span>Power BI</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/html.png" alt="HTML" />
-            <span>HTML</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/css.png" alt="CSS" />
-            <span>CSS</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/react.png" alt="React" />
-            <span>React</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/java.png" alt="Java" />
-            <span>Java</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/javascript.png" alt="JavaScript" />
-            <span>JavaScript</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/flutter.png" alt="Flutter" />
-            <span>Flutter</span>
-          </div>
-          <div class="skill-item">
-            <img src="images/firebase.png" alt="Firebase" />
-            <span>Firebase</span>
-          </div>
-        </div>
-      </div>
+      <div id="experience-placeholder"></div>
+      <div id="skills-placeholder"></div>
     </div>
+
     <div id="projects" class="section">
       <h1>Projects</h1>
       <div class="projects-slider">
         <div class="slider-container">
           <div class="project-card">
-            <img src="images/WebsitePhoto.webp" alt="Project 1" />
+            <img src="src/images/WebsitePhoto.webp" alt="Project 1" />
             <div class="project-info">
               <h3>Portfolio Website | Software Developer</h3>
               <ul>
@@ -212,7 +56,7 @@
           </div>
           <div class="project-card">
             <img
-              src="images//Screenshot 2024-12-27 185110.png"
+              src="src/images/splitbee.png"
               alt="Project 2"
             />
             <div class="project-info">
@@ -240,32 +84,7 @@
       </div>
     </div>
 
-    <div id="contact" class="contact-section">
-      <h1>Contact Me</h1>
-      <p>Thanks for scrolling to the end, I hope you enjoyed my website!</p>
-      <p>
-        If you have any questions, job opportunities or want to collaborate,
-      </p>
-      <p>feel free to reach out to me via email or LinkedIn!</p>
-      <div class="contact-bar">
-        <a href="mailto:zhenglongsue@gmail.com" class="contact-item">
-          <img src="images/email-icon.png" alt="Email" class="contact-icon" />
-          zhenglongsue@gmail.com
-        </a>
-        <a
-          href="https://www.linkedin.com/in/suezhenglong"
-          class="contact-item"
-          target="_blank"
-        >
-          <img
-            src="images/linkedin-icon.png"
-            alt="LinkedIn"
-            class="contact-icon"
-          />
-          suezhenglong
-        </a>
-      </div>
-    </div>
+    <div id="contact-placeholder"></div>
     <script>
       //to toggle between light and dark mode
 
@@ -346,7 +165,7 @@
           currentIndex++;
           updateSlider();
         }
-      });
+      });     
     </script>
   </body>
 </html>

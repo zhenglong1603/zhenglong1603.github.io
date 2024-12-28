@@ -1,0 +1,83 @@
+#about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about-card {
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.about-card .about-content {
+    display: flex;
+    flex-direction: column;
+    /* Stack paragraphs vertically */
+    margin-left: 20px;
+    /* Space between the image and the text */
+}
+
+body.dark-mode .about-card {
+    background: #333;
+    /* Dark background for dark mode */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .about-card h1 {
+    color: white;
+}
+
+/*paragraph from about me */
+.about-card p {
+    font-size: 16px;
+    color: #000000;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    /* Add some space between paragraphs */
+}
+
+body.dark-mode .about-card p {
+    color: #ffff;
+}
+
+.about-img {
+    width: 30%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+
+/* For small screens */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column;
+        /* Stack image and text vertically on small screens */
+        padding: 15px;
+    }
+
+    .about-card h2 {
+        font-size: 20px;
+    }
+
+    .about-card p {
+        font-size: 14px;
+    }
+
+    .about-img {
+        width: 60%;
+        margin-right: 0;
+        align-self: center;
+    }
+}
