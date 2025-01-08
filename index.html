@@ -100,44 +100,6 @@
         document.documentElement.scrollTop = 0;
       }
 
-      //typewriter
-      const dynamicText = document.getElementById("dynamic-text");
-      const texts = [
-        "student",
-        "software engineer",
-        "volunteer",
-        "football enthusiast",
-        "pokemon enthusiastt",
-      ];
-      let index = 0;
-
-      function typeWriterEffect() {
-        let text = texts[index];
-        dynamicText.textContent = ""; // Clear previous text
-        dynamicText.classList.remove("typing"); // Reset animation
-
-        let i = 0;
-        let interval = setInterval(() => {
-          dynamicText.textContent += text[i];
-          i++;
-          if (i === text.length) {
-            clearInterval(interval); // Stop when the word is fully typed
-            setTimeout(() => {
-              dynamicText.classList.remove("typing");
-              setTimeout(() => {
-                index = (index + 1) % texts.length;
-                typeWriterEffect(); // Start typing the next text
-              }, 1000); // Wait before starting the next word
-            }, 1000);
-          }
-        }, 150); // Speed of typing
-      }
-
-      // Start the typing effect on page load
-      window.onload = () => {
-        typeWriterEffect();
-      };
-
       const sliderContainer = document.querySelector(".slider-container");
       const prevBtn = document.querySelector(".prev-btn");
       const nextBtn = document.querySelector(".next-btn");
