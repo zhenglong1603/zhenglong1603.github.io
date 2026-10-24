@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from 'react';
 
-const LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
+const LINK_PATTERN = /\[(?<label>[^\]]+)\]\((?<href>[^)]+)\)/g;
 
 /** Renders `[label](href)` segments in i18n strings as inline links. */
 export const renderRichText = (text: string): ReactNode => {
@@ -8,7 +8,9 @@ export const renderRichText = (text: string): ReactNode => {
   let lastIndex = 0;
 
   for (const match of text.matchAll(LINK_PATTERN)) {
-    const [full, label, href] = match;
+    const full = match;
+    const label = match.groups?.label ?? '';
+    const href = match.groups?.href ?? '';
     const start = match.index;
 
     if (start > lastIndex) {

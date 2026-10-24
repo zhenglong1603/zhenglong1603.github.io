@@ -40,7 +40,7 @@ vp build    # production build to dist/
 | `src/components/ui/`                                    | shadcn/ui primitives                                        |
 | `src/locale/`                                           | i18n JSON files + `useI18n()` hook                          |
 | `src/services/api.ts`                                   | Cloudflare Workers API client                               |
-                             |
+|                                                         |
 
 See [AGENTS.md](./AGENTS.md) for full architecture, conventions, and task recipes — especially useful for AI/agent contributors.
 
