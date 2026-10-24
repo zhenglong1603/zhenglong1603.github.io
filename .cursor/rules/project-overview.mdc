@@ -1,0 +1,32 @@
+---
+description: Portfolio project overview, stack, and validation commands
+alwaysApply: true
+---
+
+# Portfolio Project Overview
+
+React 18 + TypeScript portfolio deployed to GitHub Pages (https://ycrao573.github.io).
+
+## Stack
+
+- Vite+ (`vp` CLI) for dev, lint, format, test, build
+- Tailwind CSS v4 + shadcn/ui (`radix-nova` style)
+- Motion for animations
+- React Three Fiber + r3f-globe for the world map
+- i18n via `src/locale/` (EN + ZH)
+- External API at `src/services/api.ts` (Cloudflare Workers)
+
+## Layout
+
+- Entry: `src/main.tsx` → `I18nProvider` → `app-root.tsx` → `pages/home-page/`
+- Sections live in `src/components/<name>.tsx` (flat) or `src/components/<name>/` (multi-file only)
+- shadcn primitives in `src/components/ui/`
+- Use `@/` import alias for `src/`
+
+## Conventions
+
+- kebab-case file and folder names (enforced by lint)
+- User-facing strings via `useI18n().t('key')` in both `en.json` and `zh.json`
+- Validate changes: `vp check`, `vp test`, `vp build`
+
+See `AGENTS.md` for full architecture and task recipes.

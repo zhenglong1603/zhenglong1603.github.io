@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "git-workflow": {
+      "source": "agno-agi/agno",
+      "sourceType": "github",
+      "skillPath": "cookbook/02_agents/16_skills/sample_skills/git-workflow/SKILL.md",
+      "computedHash": "29dc77199602a2528c9c75d47b13e365f394467b67a0b81aeff83c068ef8892b"
+    },
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "0dc0edeeaec2ae491ae506806517866a3f9bd48d04e0458feb37e0252862891f"
+    },
+    "tailwind-design-system": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md",
+      "computedHash": "992ab1e874c4f4159aa18d4ff45d1c3f86f322f0bd2a6744cc32f7d6147f9f06"
+    }
+  }
+}

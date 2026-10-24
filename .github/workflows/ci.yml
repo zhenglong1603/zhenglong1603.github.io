@@ -1,0 +1,33 @@
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Vite+ (vp)
+        uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: '24'
+          cache: true
+
+      - name: Install dependencies
+        run: vp install
+
+      - name: Check
+        run: vp check
+
+      - name: Test
+        run: vp test
+
+      - name: Build
+        run: vp build

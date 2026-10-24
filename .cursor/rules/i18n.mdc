@@ -1,0 +1,33 @@
+---
+description: Internationalization rules for EN/ZH locale files
+globs: src/locale/**,src/**/*.tsx
+alwaysApply: false
+---
+
+# i18n Conventions
+
+## Usage
+
+```tsx
+import { useI18n } from '@/locale';
+
+const { t, locale, setLocale } = useI18n();
+return <h2>{t('section.title')}</h2>;
+```
+
+## Adding strings
+
+1. Add the same key to **both** `src/locale/en.json` and `src/locale/zh.json`
+2. Use dot-notation keys grouped by section (e.g. `hero.subtitle`, `skills.title`)
+3. Missing keys fall back to the key string — always add both locales
+
+## Locale switching
+
+- `setLocale('en')` or `setLocale('zh')`
+- Selection persists in `localStorage` under `app_locale`
+- Header component has the locale selector
+
+## Do not
+
+- Hardcode user-facing strings in JSX (except proper nouns, URLs, or code)
+- Add a key to only one locale file

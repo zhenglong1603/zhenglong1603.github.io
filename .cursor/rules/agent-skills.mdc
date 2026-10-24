@@ -1,0 +1,20 @@
+---
+description: Points agents to installed skills.sh skills for Tailwind, shadcn, and Git
+alwaysApply: true
+---
+
+# Agent Skills
+
+This project keeps a small set of skills from [skills.sh](https://www.skills.sh/) in `.cursor/skills/`:
+
+| Skill | When to use |
+|---|---|
+| `tailwind-design-system` | Tailwind v4 `@theme`, tokens, variants, dark mode |
+| `shadcn` | Adding or customizing shadcn/ui components |
+| `git-workflow` | Commits, branches, PRs (Conventional Commits format) |
+
+React, TypeScript, and project conventions are covered by `.cursor/rules/` and `AGENTS.md` — do not install additional skills without asking.
+
+Install or update: `npx skills add <owner/repo> --skill <name> --agent cursor --copy -y`
+
+After installing to `.agents/skills/`, copy into `.cursor/skills/`. Keep total skills lean (≤3 packages).

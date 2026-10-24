@@ -1,0 +1,26 @@
+---
+description: Vite+ toolchain rules for vp commands and imports
+alwaysApply: true
+---
+
+# Vite+ Toolchain
+
+This project uses Vite+ (`vp` CLI), not raw pnpm/npm/vite commands.
+
+## Commands
+
+- `vp install` — install dependencies
+- `vp dev` — dev server
+- `vp check` — format + lint + TypeScript
+- `vp test` — Vitest
+- `vp build` — production build
+- `vp dlx <pkg>` — one-off binaries (e.g. `vp dlx shadcn@latest add button`)
+
+## Rules
+
+- Do **not** use `pnpm`, `npm`, or `npx` directly — use `vp` equivalents
+- Do **not** install vitest, oxlint, or oxfmt as direct dependencies
+- Import config/test utilities from `vite-plus` (e.g. `import { defineConfig } from 'vite-plus'`)
+- Custom `package.json` scripts that share names with built-in commands: use `vp run <script>`
+
+See `AGENTS.md` for the full Vite+ reference and agent checklist.

@@ -1,0 +1,40 @@
+---
+description: React component and UI patterns for portfolio sections
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# React UI Conventions
+
+## Components
+
+- Single-file sections: `src/components/<name>.tsx` (kebab-case)
+- Multi-file sections: `src/components/<name>/` only when multiple related files exist
+- Export default from component files
+- Use functional components with explicit TypeScript props
+
+## Styling
+
+- Prefer Tailwind utility classes — never use SCSS
+- Use `cn()` from `@/lib/utils` for conditional/merged classes
+- Use CSS modules (`.module.css`) only when Tailwind is impractical (e.g. complex keyframe animations)
+- Use shadcn primitives from `@/components/ui/`
+- Add new shadcn components: `vp dlx shadcn@latest add <name>`
+
+## Animations
+
+- Use `motion` from `motion/react` for section animations
+- Keep animation props minimal; match existing patterns in hero/about-me
+
+## 3D Globe
+
+- Three.js logic stays in `world-map/globe-canvas.tsx` and `world-map/utils.ts`
+- Lazy-load globe via `React.lazy` (see `world-map/index.tsx`)
+- Do not import Three.js directly in section components
+
+## Avoid
+
+- SCSS files or `.scss` imports
+- Inline styles unless necessary for dynamic values
+- Single-file component folders (use `src/components/<name>.tsx` instead)
+- PascalCase folder or file names
