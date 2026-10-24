@@ -19,7 +19,7 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 # Portfolio Project Guide
 
-Personal portfolio site for Sue Zheng Long, deployed to GitHub Pages at https://zhenglong1603.github.io. Pushes to `master` trigger automatic deployment via GitHub Actions.
+Personal portfolio site for Sue Zheng Long, deployed to GitHub Pages at https://zhenglong1603.github.io. Pushes to `main` trigger automatic deployment via GitHub Actions.
 
 ## Tech Stack
 
@@ -117,8 +117,8 @@ Component lands in `src/components/ui/`. Import from `@/components/ui/<component
 
 ## Deployment
 
-- **PR CI:** pull requests to `master` → `.github/workflows/ci.yml` runs `vp check`, `vp test`, `vp build` (no deploy)
-- **Automatic:** push to `master` → `.github/workflows/deploy.yml` runs `vp check`, `vp test`, `vp build`, deploys `dist/` to GitHub Pages
+- **PR CI:** pull requests to `main` → `.github/workflows/ci.yml` runs `vp check`, `vp test`, `vp build` (no deploy)
+- **Automatic:** push to `main` → `.github/workflows/deploy.yml` runs `vp check`, `vp test`, `vp build`, deploys `dist/` to GitHub Pages
 - **Manual:** `vp run deploy` (runs `vp build` then `gh-pages -d dist`)
 
 ## Agent Skills

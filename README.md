@@ -50,9 +50,9 @@ Skills from [skills.sh](https://www.skills.sh/) in [`.cursor/skills/`](.cursor/s
 
 ## Deployment
 
-Pull requests targeting `master` run GitHub Actions CI (`.github/workflows/ci.yml`): `vp check`, `vp test`, and `vp build` (no deploy).
+Pull requests targeting `main` run GitHub Actions CI (`.github/workflows/ci.yml`): `vp check`, `vp test`, and `vp build` (no deploy).
 
-Pushes to `master` trigger GitHub Actions (`.github/workflows/deploy.yml`):
+Pushes to `main` trigger GitHub Actions (`.github/workflows/deploy.yml`):
 
 1. `vp check` — lint and type checks
 2. `vp test` — unit tests

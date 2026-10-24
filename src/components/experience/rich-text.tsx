@@ -8,7 +8,7 @@ export const renderRichText = (text: string): ReactNode => {
   let lastIndex = 0;
 
   for (const match of text.matchAll(LINK_PATTERN)) {
-    const full = match;
+    const [full] = match;
     const label = match.groups?.label ?? '';
     const href = match.groups?.href ?? '';
     const start = match.index;
